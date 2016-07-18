@@ -1,5 +1,4 @@
 'use strict';
-
 exports.up = function(knex) {
   return knex.schema.createTable('playlists', (table) => {
     table.increments();
@@ -14,9 +13,7 @@ exports.up = function(knex) {
       .index();
     table.timestamps(true, true);
   });
-
 };
-
 exports.down = function(knex) {
   return knex.schema.dropTable('tracks');
 };

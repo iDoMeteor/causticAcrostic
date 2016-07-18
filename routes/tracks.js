@@ -3,26 +3,16 @@
 const express = require('express');
 const router = express.Router();
 
-const ev = require('express-validation');
-const validations = require('../validations/tracks');
 const knex = require('../knex');
 
 router.get('/tracks', (req, res, next) => {
-  knex('tracks')
-    .orderBy('name', 'asc')
+  knex.select('artist', 'name', 'preview_url')
+    .from('tracks')
+    .where('tracks.name', 'like', `${req.query.letter}%`)
     .then((tracks) => {
-      res.send(tracks);
-    })
-    .catch((err) => {
-      next(err);
-    });
-});
-
-router.post('/tracks', ev(validations.post), (req, res, next) => {
-  knex('tracks')
-    .insert(req.body, '*')
-    .then((tracks) => {
-      res.send(tracks[0]);
+      const track = tracks[Math.floor(Math.random() * tracks.length)];
+      
+      res.send(track);
     })
     .catch((err) => {
       next(err);

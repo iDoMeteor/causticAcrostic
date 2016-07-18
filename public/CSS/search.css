@@ -1,6 +1,5 @@
 #searchartist{
   font-size: 25px;
-  max-length:15;
   margin-bottom: 10px;
   border-top: 1px solid #111;
   color:white;
@@ -8,8 +7,28 @@
   serif;
 
 }
+#both_buttons{
+text-align: center;
 
+}
+#newSearch {
+      border-radius: 99px !important;
+}
 
+#save-button{
+  border-radius: 99px !important;
+
+}
+
+#collection-button{
+  border-radius: 99px !important;
+}
+
+#search-button{
+  margin-right: 15px !important;
+  border-radius: 99px !important;
+
+}
 /**{
   border:solid green;
 }*/
@@ -17,10 +36,14 @@
   width:400;
 }
 
+.no-focus:focus{
+  border-bottom: 0px !important;
+  box-shadow: none !important;
+}
+
 
 #dynamic-search{
   font-size: 60px;
-  max-length:15;
   margin-bottom: 10px;
   border-top: 1px solid #111;
   color:white;
@@ -44,7 +67,6 @@ input{
 
 #search{
   font-size: 60px;
-  max-length:15;
   margin-bottom: 10px;
   border-top: 1px solid #111;
   border-bottom: 1px solid white;
@@ -83,10 +105,6 @@ input{
   transition: all 0.3s;
 }
 
-
-
-
-
 .character-counter{
   color:white;
 }
@@ -108,6 +126,30 @@ input{
   margin-left:auto;
   margin-right:auto;
   width:960px;
+}
+/* do not group these rules */
+*::-webkit-input-placeholder {
+  font-size: 28px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+*:-moz-placeholder {
+    /* FF 4-18 */
+  font-size: 28px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+*::-moz-placeholder {
+    /* FF 19+ */
+  font-size: 28px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+*:-ms-input-placeholder {
+    /* IE 10+ */
+  font-size: 28px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
   a.song {
@@ -157,8 +199,7 @@ body {
   }
   #search{
     font-size: 60px;
-    max-length:15;
-  }
+    }
 
   #track_name {
     font-size: 15px;
@@ -207,6 +248,38 @@ body {
       background-repeat: no-repeat;
     }
 
-.invisible {
+#dynamic-search.invisible {
+  font-size: 40px;
+  margin-bottom: 5px;
+  font: 40px/40px 'Megrim', Georgia,
+  serif;
   visibility: hidden;
+}
+
+.track-info {
+  display: none;
+}
+
+.track-wrapper:hover .track-info {
+  font-size: 15px;
+  font: 15px/15px 'Megrim', Georgia, serif;
+  color: #fff;
+  visibility: visible;
+  display: block;
+}
+
+
+.blurredElement {
+
+     /* Any browser which supports CSS3 */
+    filter: blur(3px);
+
+    /* Firefox */
+    filter: url("blur.svg#gaussian_blur");
+
+    /* Webkit */
+    -webkit-filter: blur(5px);
+
+    /* Opera */
+    -o-filter: blur(5px);
 }

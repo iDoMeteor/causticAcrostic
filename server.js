@@ -9,7 +9,6 @@ const morgan = require('morgan');
 
 const playlists = require('./routes/playlists');
 const tracks = require('./routes/tracks');
-const playlists_tracks = require('./routes/playlists_tracks');
 const spotify_query = require('./routes/spotify_query');
 
 const app = express();
@@ -23,7 +22,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(playlists);
 app.use(tracks);
-app.use(playlists_tracks);
 app.use(spotify_query);
 
 app.use((_req, res) => {
@@ -32,11 +30,10 @@ app.use((_req, res) => {
 
 // eslint-disable-next-line max-params
 app.use((err, _req, res, _next) => {
-  // eslint-disable-next-line no-console
   if (err.status) {
     return res.status(err.status).send(err.message);
   }
-
+  // eslint-disable-next-line no-console
   console.error(err);
   res.sendStatus(500);
 });
